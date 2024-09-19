@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  main:
+    build: .
+    restart: unless-stopped
+    privileged: false
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "22222:22"
+      - "10003:10003"
+    environment:
+      - EDITOR=vim
+    networks:
+        default:
+
+networks:
+    default:
